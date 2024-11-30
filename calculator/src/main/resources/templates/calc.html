@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        h1 {
+            width: fit-content;
+            margin: auto;
+        }
+    </Style>
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <form action="/add">
+
+
+        <table>
+            <tr>
+                <td><label for="n1">Enter a Number: </label></td>
+                <td><input type="number" name="n1" id="n1"></td>
+            </tr>
+            <tr>
+                <td><label for="opt">Select Operation</label></td>
+                <td>
+                    <select name="choice" id="opt">
+                        <option value="add">Add</option>
+                        <option value="subtract">Subtract</option>
+                        <option value="multiply">Multiply</option>
+                        <option value="divide">Divide</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="n2">Enter a Number: </label></td>
+                <td><input type="number" name="n2" id="n2"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">=</button></td>
+            </tr>
+    </form>
+    </table>
+    <p th:text="${result}"></p>
+
+
+
+
+</body>
+
+</html>
