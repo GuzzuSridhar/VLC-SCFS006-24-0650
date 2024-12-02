@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/accounts") // a prefix for the endpoints in this controller
 public class AccountController {
-    @RequestMapping("/list")
+    @RequestMapping("/list") // is read as /accounts/list
     public String viewAccts() {
         return "List of accounts";
     }
 
-    @RequestMapping("/add")
+    @RequestMapping("/add") // is read as /accounts/add
     public String addAcct() {
         return "Account add screen";
     }
 
-    @RequestMapping("/edit")
+    @RequestMapping("/edit") // is read as /accounts/edit
     public String editAcct() {
         return "Account edit screen";
     }
 
-    @RequestMapping("/delete")
+    @RequestMapping("/delete") // is read as /accounts/delete
     public String delAcct() {
         return "Account delete screen";
     }
