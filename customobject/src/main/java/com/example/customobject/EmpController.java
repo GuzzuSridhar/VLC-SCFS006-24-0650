@@ -19,4 +19,9 @@ public class EmpController {
         return "emp";
 
     }
+
+    @RequestMapping("/")
+    public String showMain() {
+        return "redirect:/emp";
+    }
 }
