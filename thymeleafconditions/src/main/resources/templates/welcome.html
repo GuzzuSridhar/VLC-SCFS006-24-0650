@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welcome</h1>
+    <!-- using the th:if  and th:unless operations-->
+    <p>Using the th:if syntax</p>
+    <p th:if="${age>=18}">You can Vote</p>
+    <p th:unless="${age>=18}">You cannot Vote</p>
+
+    <!-- th:case -->
+    <p>Using the th:case syntax</p>
+    <div th:switch="${age>=18}">
+        <p th:case="${true}">You can vote</p>
+        <p th:case="${false}">You cannot vote</p>
+    </div>
+
+    <!-- using the elvis operator -->
+    <p>Using the elvis operator</p>
+    <p th:text="${age>=18} ? 'You can Vote': 'You cannot vote'"></p>
+</body>
+
+</html>
