@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Welcome</h1>
+    <h1>Welcome! <span th:text="${name}"></span></h1>
     <!-- using the th:if  and th:unless operations-->
     <p>Using the th:if syntax</p>
     <p th:if="${age>=18}">You can Vote</p>
