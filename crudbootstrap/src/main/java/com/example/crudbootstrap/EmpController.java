@@ -44,7 +44,15 @@ public class EmpController {
 
     // end point to update and employee
     @RequestMapping("/update/{id}")
-    public String updateEmployee(@PathVariable int id) {
+    public String updateEmployee(@PathVariable int id, Model model) {
+        System.out.println(id);
+        model.addAttribute("emplist", employees);
+        for (Employee employee : employees) {
+            if (employee.getEmpid() == id) {
+                model.addAttribute("editrec", employee);
+                break;
+            }
+        }
         return "emp";
     }
 

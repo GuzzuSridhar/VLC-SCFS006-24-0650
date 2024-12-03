@@ -29,15 +29,18 @@
             <div class="row align-items-start">
                 <div class="col">
                     <label for="id" class="form-label">Employee ID</label>
-                    <input type="number" class="form-control" id="id" name="id">
+                    <input type="number" class="form-control" id="id" name="id"
+                        th:value="${editrec != null ? editrec.empid : ''}">
                 </div>
-                <div class="col">
+                <div class=" col">
                     <label for="name" class="form-label">Employee Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="text" class="form-control" id="name" name="name"
+                        th:value="${editrec != null ? editrec.ename : ''}">
                 </div>
                 <div class="col">
                     <label for="Salary" class="form-label">Salary</label>
-                    <input type="text" class="form-control" id="salary" name="sal">
+                    <input type="text" class="form-control" id="salary" name="sal"
+                        th:value="${editrec != null ? editrec.sal : ''}">
                 </div>
                 <div style="height: 15px;"></div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -61,6 +64,7 @@
                     <td th:text="${emp.ename}"></td>
                     <td th:text="${emp.sal}"></td>
                     <td>
+                        <a th:href="@{/update/{id}(id=${emp.empid})}"><i class="fa-solid fa-pen-to-square"></i></a>
                         <a th:href="@{/delete/{id}(id=${emp.empid})}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
