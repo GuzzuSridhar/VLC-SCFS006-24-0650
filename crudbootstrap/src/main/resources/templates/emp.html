@@ -50,12 +50,16 @@
                     <th>Employee ID</th>
                     <th>Employee Name</th>
                     <th>Salary</th>
+                    <th>Actions</th>
                 </tr>
             <tbody>
                 <tr th:each="emp: ${emplist}">
                     <td th:text="${emp.empid}"></td>
                     <td th:text="${emp.ename}"></td>
                     <td th:text="${emp.sal}"></td>
+                    <td>
+                        <a th:href="@{/delete/{id}(id=${emp.empid})}">Delete</a>
+                    </td>
                 </tr>
 
             </tbody>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,7 +26,17 @@ public class EmpController {
             @RequestParam("sal") float sal) {
         employees.add(new Employee(id, name, sal));
         return "redirect:/list";
-
     }
 
+    // end point to delete an employee
+    @RequestMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable int id, Model model) {
+        for (Employee employee : employees) {
+            if (employee.getEmpid() == id) {
+                employees.remove(employee);
+                break;
+            }
+        }
+        return "redirect:/list";
+    }
 }
