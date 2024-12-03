@@ -24,8 +24,28 @@ public class EmpController {
     public String addEmployee(@RequestParam("id") int id,
             @RequestParam("name") String name,
             @RequestParam("sal") float sal) {
-        employees.add(new Employee(id, name, sal));
+
+        boolean empExists = false;
+
+        // check to see if the employee already exixts in the list
+        for (Employee employee : employees) {
+            if (employee.getEmpid() == id) {
+                // if existing change the name and salary
+                employee.setEname(name);
+                employee.setSal(sal);
+                empExists = true;
+                break;
+            }
+        }
+        if (!empExists)
+            employees.add(new Employee(id, name, sal));
         return "redirect:/list";
+    }
+
+    // end point to update and employee
+    @RequestMapping("/update/{id}")
+    public String updateEmployee(@PathVariable int id) {
+        return "emp";
     }
 
     // end point to delete an employee
