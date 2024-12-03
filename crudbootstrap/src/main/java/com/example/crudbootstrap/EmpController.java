@@ -30,7 +30,7 @@ public class EmpController {
 
     // end point to delete an employee
     @RequestMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable int id, Model model) {
+    public String deleteEmployee(@PathVariable int id) {
         for (Employee employee : employees) {
             if (employee.getEmpid() == id) {
                 employees.remove(employee);
