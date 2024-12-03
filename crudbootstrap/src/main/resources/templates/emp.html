@@ -19,19 +19,22 @@
     <!-- display a form to add employee -->
     <div class="center">
         <form action="/add">
-            <div class="mb-3">
-                <label for="id" class="form-label">Employee ID</label>
-                <input type="number" class="form-control" id="id" name="id">
+            <div class="row align-items-start">
+                <div class="col">
+                    <label for="id" class="form-label">Employee ID</label>
+                    <input type="number" class="form-control" id="id" name="id">
+                </div>
+                <div class="col">
+                    <label for="name" class="form-label">Employee Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="col">
+                    <label for="Salary" class="form-label">Salary</label>
+                    <input type="text" class="form-control" id="salary" name="sal">
+                </div>
+                <div style="height: 15px;"></div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-            <div class="mb-3">
-                <label for="name" class="form-label">Employee Name</label>
-                <input type="text" class="form-control" id="name" name="name">
-            </div>
-            <div class="mb-3">
-                <label for="Salary" class="form-label">Salary</label>
-                <input type="text" class="form-control" id="salary" name="sal">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
     <hr>
