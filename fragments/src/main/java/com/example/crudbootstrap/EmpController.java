@@ -13,6 +13,12 @@ public class EmpController {
     ArrayList<Employee> employees = new ArrayList<>();
     boolean edit = false;
 
+    // end point to display home page
+    @RequestMapping("/")
+    public String showMain() {
+        return "index";
+    }
+
     // end point to display the list of employees
     @RequestMapping("/list")
     public String showEmployees(Model model) {
