@@ -7,59 +7,99 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        .form {
+            height: 100px;
+            text-align: center;
+            border: 1px solid black;
+        }
+
+        form {
+            margin-top: 15px;
+
+        }
+
+        .center {
+            width: fit-content;
+            margin: auto;
+            margin-top: 200px;
+
+        }
+
+        h2 {
+            text-align: center;
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <form action="/list" method="get">
-                    <label for="name">Enter Text</label>
-                    <input type="text" id="name" name="name">
-                    <button type="submit">Get</button>
-                </form>
-                <div>
-                    <span>Result: </span>
-                    <span th:text="${getmsg}"></span>
-                </div>
-            </td>
-            <td>
-                <form action="/add" method="post">
-                    <label for="name">Enter Text</label>
-                    <input type="text" id="name" name="name">
-                    <button type="submit">Post</button>
-                </form>
-                <div>
-                    <span>Result: </span>
-                    <span th:text="${postmsg}"></span>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form action="/edit" method="post">
-                    <label for="name">Enter Text</label>
-                    <input type="text" id="name" name="name">
-                    <button type="submit" id="putbtn">Put</button>
-                </form>
-                <div>
-                    <span>Result: </span>
-                    <span id="editmsg" th:text="${putmsg}"></span>
-                </div>
-            </td>
-            <td>
-                <form action="/delete" method="put">
-                    <label for="name">Enter Text</label>
-                    <input type="text" id="name" name="name">
-                    <button type="submit" id="delbtn">Delete</button>
-                </form>
-                <div>
-                    <span>Result: </span>
-                    <span id="delmsg" th:text="${delmsg}"></span>
-                </div>
-            </td>
-        </tr>
-    </table>
+    <div class="center">
+        <h2>HTTP Methods Demo</h2>
+        <hr>
+        <table>
+            <tr>
+                <td>
+                    <div class="form">
+                        <h4>Get Method</h4>
+                        <form action="/list" method="get">
+                            <label for="name">Enter Text</label>
+                            <input type="text" id="name" name="name">
+                            <button type="submit">Get</button>
+                        </form>
+                        <div>
+                            <span>Result: </span>
+                            <span th:text="${getmsg}"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form">
+                        <h4>Post Method</h4>
+                        <form action="/add" method="post">
+                            <label for="name">Enter Text</label>
+                            <input type="text" id="name" name="name">
+                            <button type="submit">Post</button>
+                        </form>
+                        <div>
+                            <span>Result: </span>
+                            <span th:text="${postmsg}"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form">
+                        <h4>Put Method</h4>
+                        <form action="/edit" method="post">
+                            <label for="name">Enter Text</label>
+                            <input type="text" id="name" name="name">
+                            <button type="submit" id="putbtn">Put</button>
+                        </form>
+                        <div>
+                            <span>Result: </span>
+                            <span id="editmsg" th:text="${putmsg}"></span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form">
+                        <h4>Delete Method</h4>
+                        <form action="/delete" method="put">
+                            <label for="name">Enter Text</label>
+                            <input type="text" id="name" name="name">
+                            <button type="submit" id="delbtn">Delete</button>
+                        </form>
+                        <div>
+                            <span>Result: </span>
+                            <span id="delmsg" th:text="${delmsg}"></span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <script>
         $(document).ready(function () {
