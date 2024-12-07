@@ -47,4 +47,13 @@ public class MyController {
         System.out.println(protoTypeBeanOne.getCounter());
         System.out.println(protoTypeBeanTwo.getCounter());
     }
+
+    @GetMapping("compare")
+    public void compareInstances() {
+        System.out.println("hashcode of first Singleton Bean is " + singleTonBeanOne.hashCode());
+        System.out.println("hashcode of second Singleton Bean is " + singleTonBeanTwo.hashCode());
+
+        System.out.println("hashcode of first Prototype Bean is " + protoTypeBeanOne.hashCode());
+        System.out.println("hashcode of second Prototype Bean is " + protoTypeBeanTwo.hashCode());
+    }
 }
