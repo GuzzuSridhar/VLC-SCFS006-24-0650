@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class EmpController {
     ArrayList<Employee> employees = new ArrayList<>();
+    boolean edit = false;
 
     // end point to display the list of employees
     @RequestMapping("/list")
     public String showEmployees(Model model) {
+        edit = false;
+        model.addAttribute("edit", edit);
         model.addAttribute("emplist", employees);
         return "emp";
     }
@@ -45,6 +48,8 @@ public class EmpController {
     // end point to update and employee
     @RequestMapping("/update/{id}")
     public String updateEmployee(@PathVariable int id, Model model) {
+        edit = true;
+        model.addAttribute("edit", edit);
         System.out.println(id);
         model.addAttribute("emplist", employees);
         for (Employee employee : employees) {

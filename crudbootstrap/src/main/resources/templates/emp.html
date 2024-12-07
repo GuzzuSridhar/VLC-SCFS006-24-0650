@@ -16,8 +16,10 @@
             margin: auto;
         }
 
-        h3 {
+        h3,
+        h4 {
             text-align: center;
+            color: blue;
         }
     </style>
 </head>
@@ -25,11 +27,13 @@
 <body>
     <!-- display a form to add employee -->
     <div class="center">
+        <h4 th:if="${edit}">Edit Employee</h4>
+        <h4 th:unless="${edit}">Add Employee </h4>
         <form action="/add">
             <div class="row align-items-start">
                 <div class="col">
                     <label for="id" class="form-label">Employee ID</label>
-                    <input type="number" class="form-control" id="id" name="id"
+                    <input type="number" class="form-control" id="id" name="id" th:readonly="${edit}"
                         th:value="${editrec != null ? editrec.empid : ''}">
                 </div>
                 <div class=" col">
