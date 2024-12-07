@@ -29,7 +29,7 @@ public class HttpController {
     }
 
     @PutMapping("/edit")
-    @ResponseBody
+    @ResponseBody // this ensures that the template name is not returned but a plain text or json
     public String putMethod(Model model) {
         // model.addAttribute("putmsg", "Put Method");
         return "Put Message from Controller";
@@ -39,7 +39,7 @@ public class HttpController {
     @DeleteMapping("/delete")
     @ResponseBody
     public String delMethod(Model model) {
-        model.addAttribute("delmsg", "Delete Method");
+        // model.addAttribute("delmsg", "Delete Method");
         return "Delete Message from";
     }
 }
