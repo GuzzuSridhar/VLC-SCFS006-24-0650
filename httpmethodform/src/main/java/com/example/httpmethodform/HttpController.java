@@ -6,9 +6,16 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HttpController {
+
+    @GetMapping("/")
+    public String showMain() {
+        return "index";
+    }
+
     @GetMapping("/list")
     public String getMethod(Model model) {
         model.addAttribute("getmsg", "Get Method");
@@ -22,14 +29,17 @@ public class HttpController {
     }
 
     @PutMapping("/edit")
+    @ResponseBody
     public String putMethod(Model model) {
-        model.addAttribute("putmsg", "Put Method");
-        return "index";
+        // model.addAttribute("putmsg", "Put Method");
+        return "Put Message from Controller";
+        // return "index";
     }
 
     @DeleteMapping("/delete")
+    @ResponseBody
     public String delMethod(Model model) {
         model.addAttribute("delmsg", "Delete Method");
-        return "index";
+        return "Delete Message from";
     }
 }

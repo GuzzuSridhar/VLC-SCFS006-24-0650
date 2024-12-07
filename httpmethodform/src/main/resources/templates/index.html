@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form action="/list" method="get">
+                    <label for="name">Enter Text</label>
+                    <input type="text" id="name" name="name">
+                    <button type="submit">Get</button>
+                </form>
+                <div>
+                    <span>Result: </span>
+                    <span th:text="${getmsg}"></span>
+                </div>
+            </td>
+            <td>
+                <form action="/add" method="post">
+                    <label for="name">Enter Text</label>
+                    <input type="text" id="name" name="name">
+                    <button type="submit">Post</button>
+                </form>
+                <div>
+                    <span>Result: </span>
+                    <span th:text="${postmsg}"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/edit" method="post">
+                    <label for="name">Enter Text</label>
+                    <input type="text" id="name" name="name">
+                    <button type="submit" id="putbtn">Put</button>
+                </form>
+                <div>
+                    <span>Result: </span>
+                    <span id="editmsg" th:text="${putmsg}"></span>
+                </div>
+            </td>
+            <td>
+                <form action="/delete" method="delete">
+                    <label for="name">Enter Text</label>
+                    <input type="text" id="name" name="name">
+                    <button type="submit" id="delbtn">Delete</button>
+                </form>
+                <div>
+                    <span>Result: </span>
+                    <span id="delmsg" th:text="${delmsg}"></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#putbtn').click(function () {
+                event.preventDefault();
+                $.ajax({
+                    url: "/edit",
+                    type: "PUT",
+                    success: function (response) {
+                        var result = document.getElementById("editmsg")
+                        result.innerText = response
+                    }
+                })
+            })
+        })
+
+        $(document).ready(function () {
+            $('#delbtn').click(function () {
+                event.preventDefault();
+                $.ajax({
+                    url: "/delete",
+                    type: "DELETE",
+                    success: function (response) {
+                        var result = document.getElementById("delmsg")
+                        result.innerText = response
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
