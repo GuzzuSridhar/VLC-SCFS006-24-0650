@@ -16,10 +16,10 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // the columnm will generate value imlicitly and shoold not be
                                                         // included in the instert statement
     private int id;
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = false, length = 200)
     private String name;
     private double marks;
-    @Transient
+    @Transient // ignored while creating the table
     private boolean test;
 
     public Student(int id, String name, double marks) {
