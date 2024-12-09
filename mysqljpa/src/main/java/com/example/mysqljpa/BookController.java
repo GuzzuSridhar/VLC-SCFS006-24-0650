@@ -27,7 +27,7 @@ public class BookController {
     @RequestMapping("/add")
     public void addBook(@RequestParam("id") int id,
             @RequestParam("name") String name,
-            @RequestParam("sal") float price) {
+            @RequestParam("price") float price) {
         Book newEmployee = new Book(id, name, price);
         bookRepo.save(newEmployee);
     }
