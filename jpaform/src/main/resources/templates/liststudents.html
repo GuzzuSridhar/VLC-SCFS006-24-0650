@@ -16,15 +16,21 @@
                 <th scope="col">Grade</th>
                 <th scope="col">Marks in English</th>
                 <th scope="col">Marks in Math</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="stud : ${list}">
                 <td th:text="${stud.id}"></td>
                 <td th:text="${stud.name}"></td>
+                <td th:text="${stud.grade}"></td>
                 <td th:text="${stud.marksEnglish}"></td>
                 <td th:text="${stud.marksMath}"></td>
-                <td th:text="${stud.grade}"></td>
+                <td>
+                    <a th:href="@{/edit/{id} (id=${stud.id})}"><i class="fa-solid fa-pen"></i></a>
+                    <a th:href="@{/delete/{id} (id=${stud.id})}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+
             </tr>
         </tbody>
     </table>
