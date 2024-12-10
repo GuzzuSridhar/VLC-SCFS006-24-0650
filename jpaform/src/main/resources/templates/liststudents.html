@@ -8,6 +8,27 @@
 <body>
     <div th:replace="~{components :: nav}"></div>
 
+    <table class="table table-striped center">
+        <thead>
+            <tr>
+                <th scope="col">Student ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Marks in English</th>
+                <th scope="col">Marks in Math</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="stud : ${list}">
+                <td th:text="${stud.id}"></td>
+                <td th:text="${stud.name}"></td>
+                <td th:text="${stud.marksEnglish}"></td>
+                <td th:text="${stud.marksMath}"></td>
+                <td th:text="${stud.grade}"></td>
+            </tr>
+        </tbody>
+    </table>
+
     <div th:replace="~{components :: foot}"></div>
 
 </body>
