@@ -8,6 +8,44 @@
 <body>
     <div th:replace="~{components :: nav}"></div>
 
+    <!--  for to add Student record -->
+
+    <div class="center">
+        <h2>Add Student</h2>
+
+
+        <form action="/add" method="post">
+
+            <table>
+                <tr>
+                    <td><label for="id">Student ID</label></td>
+                    <td><input type="number" id="id" name="id"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Student Name</label></td>
+                    <td><input type="text" id="name" name="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="grade">Student Grade</label></td>
+                    <td><input type="number" id="grade" name="grade"></td>
+                </tr>
+                <tr>
+                    <td><label for="math">Math Marks</label></td>
+                    <td><input type="number" id="math" name="math"></td>
+                </tr>
+                <tr>
+                    <td><label for="eng">English Marks</label></td>
+                    <td><input type="number" id="eng" name="eng"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Save">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
     <div th:replace="~{components :: foot}"></div>
 
 </body>
