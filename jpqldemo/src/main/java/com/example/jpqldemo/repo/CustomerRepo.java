@@ -25,4 +25,7 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Query("select c from Customer c where custId = :cid")
     Customer findc(int cid);
 
+    // using the builin jpa method naming
+    List<Customer> findDistinctBycustName(String name);
+    // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
 }

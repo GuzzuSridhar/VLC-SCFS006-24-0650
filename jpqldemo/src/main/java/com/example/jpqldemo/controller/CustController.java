@@ -24,4 +24,9 @@ public class CustController {
     public Customer findcust(int id) {
         return customerRepo.findc(id);
     }
+
+    @GetMapping("/findb")
+    public List<Customer> finList(String name) {
+        return customerRepo.findDistinctBycustName(name);
+    }
 }
