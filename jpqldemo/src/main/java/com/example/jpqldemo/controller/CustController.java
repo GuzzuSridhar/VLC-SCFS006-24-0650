@@ -19,4 +19,9 @@ public class CustController {
     public List<Customer> findByname(String name) {
         return customerRepo.findByCustName(name);
     }
+
+    @GetMapping("/findc")
+    public Customer findcust(int id) {
+        return customerRepo.findc(id);
+    }
 }

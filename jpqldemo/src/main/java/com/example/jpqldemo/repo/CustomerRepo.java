@@ -21,4 +21,8 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Query("select c from Customer c where lower(custName) = ?1")
     List<Customer> findByCustName(String custName);
 
+    // @Query Annotation using the named parameters
+    @Query("select c from Customer c where custId = :cid")
+    Customer findc(int cid);
+
 }
