@@ -3,9 +3,12 @@ package com.example.jpqldemo.repo;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.example.jpqldemo.model.Customer;
+
+import jakarta.transaction.Transactional;
 
 public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     // save
@@ -34,4 +37,10 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     // using the table and column names as in the database
     @Query(value = "select * from customer where cust_name= ?1", nativeQuery = true)
     List<Customer> findByName(String name);
+
+    // updating records
+    @Modifying
+    @Transactional
+    @Query("update Customer c set c.custName= :name where custId = :id")
+    void setName(String name, int id);
 }

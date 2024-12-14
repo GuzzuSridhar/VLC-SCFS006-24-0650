@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.jpqldemo.model.Customer;
 import com.example.jpqldemo.repo.CustomerRepo;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class CustController {
@@ -33,6 +35,11 @@ public class CustController {
     @GetMapping("/findbyname")
     public List<Customer> finLista(String name) {
         return customerRepo.findByName(name);
+    }
+
+    @PostMapping("/change")
+    public void postMethodName(String name, int id) {
+        customerRepo.setName(name, id);
     }
 
 }
