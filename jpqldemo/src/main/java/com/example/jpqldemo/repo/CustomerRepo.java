@@ -43,4 +43,10 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
     @Transactional
     @Query("update Customer c set c.custName= :name where custId = :id")
     void setName(String name, int id);
+
+    // deletion of records
+    @Modifying
+    @Transactional
+    @Query("delete from Customer c  where c.custName=  :cname ")
+    void deleteCustomer(String cname);
 }

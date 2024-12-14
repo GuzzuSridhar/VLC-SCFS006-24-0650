@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.jpqldemo.model.Customer;
 import com.example.jpqldemo.repo.CustomerRepo;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class CustController {
@@ -42,4 +41,8 @@ public class CustController {
         customerRepo.setName(name, id);
     }
 
+    @GetMapping("/del")
+    public void delCustomer(String name) {
+        customerRepo.deleteCustomer(name);
+    }
 }
