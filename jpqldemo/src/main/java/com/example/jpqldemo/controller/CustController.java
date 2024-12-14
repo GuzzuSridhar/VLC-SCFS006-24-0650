@@ -29,4 +29,10 @@ public class CustController {
     public List<Customer> finList(String name) {
         return customerRepo.findDistinctBycustName(name);
     }
+
+    @GetMapping("/findbyname")
+    public List<Customer> finLista(String name) {
+        return customerRepo.findByName(name);
+    }
+
 }

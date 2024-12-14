@@ -27,5 +27,11 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer> {
 
     // using the builin jpa method naming
     List<Customer> findDistinctBycustName(String name);
+
     // https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
+
+    // Native Queries
+    // using the table and column names as in the database
+    @Query(value = "select * from customer where cust_name= ?1", nativeQuery = true)
+    List<Customer> findByName(String name);
 }
