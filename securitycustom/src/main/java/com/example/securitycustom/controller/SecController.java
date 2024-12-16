@@ -30,4 +30,10 @@ public class SecController {
     public String showAd() {
         return "403";
     }
+
+    @GetMapping("/login")
+    public String showlogin() {
+        return "login";
+    }
+
 }

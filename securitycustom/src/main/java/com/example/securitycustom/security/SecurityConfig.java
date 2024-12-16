@@ -59,8 +59,12 @@ public class SecurityConfig {
                 // .requestMatchers("/home").authenticated()
                 .anyRequest().authenticated())
 
-                .formLogin(fl -> fl.successForwardUrl("/home"))
+                .formLogin(fl -> fl
+                        .successForwardUrl("/home")
+                        .loginPage("/login"))
                 .logout(lo -> lo.logoutSuccessUrl("/login"))
+
+                .csrf(c -> c.disable())
 
                 // customizing the html error pages
                 .exceptionHandling(ex -> ex.accessDeniedPage("/403"));
