@@ -25,4 +25,9 @@ public class SecController {
     public String show() {
         return "sample";
     }
+
+    @GetMapping("/403")
+    public String showAd() {
+        return "403";
+    }
 }

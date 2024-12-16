@@ -50,7 +50,9 @@ public class SecurityConfig {
 
                 // permitting the access to the login and log out pages to all (no
                 // authentication required)
-                .requestMatchers("/", "/login", "/logout").permitAll()
+                .requestMatchers("/", "/login", "/logout", "/403").permitAll()
+
+                // .requestMatchers("/test").denyAll()
 
                 // assign access to all authenticated users to the end points "/home",
                 // "/sample"
@@ -58,7 +60,10 @@ public class SecurityConfig {
                 .anyRequest().authenticated())
 
                 .formLogin(fl -> fl.successForwardUrl("/home"))
-                .logout(lo -> lo.logoutSuccessUrl("/login"));
+                .logout(lo -> lo.logoutSuccessUrl("/login"))
+
+                // customizing the html error pages
+                .exceptionHandling(ex -> ex.accessDeniedPage("/403"));
 
         return http.build();
 
