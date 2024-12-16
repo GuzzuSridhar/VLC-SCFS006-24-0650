@@ -11,7 +11,7 @@ public class SecController {
         return "welcome";
     }
 
-    @PostMapping("/")
+    @PostMapping("/home")
     public String showmainO() {
         return "welcome";
     }

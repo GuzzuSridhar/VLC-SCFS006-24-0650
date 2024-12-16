@@ -44,14 +44,20 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(auth -> auth
+                // restricting the access to the /sample only to admin role
+                .requestMatchers("/sample").hasRole("ADMIN")
+                // .requestMatchers("/sample").hasAnyRole("ADMIN","USER")
+
                 // permitting the access to the login and log out pages to all (no
                 // authentication required)
-                .requestMatchers("/", "/login", "logout").permitAll()
+                .requestMatchers("/", "/login", "/logout").permitAll()
+
                 // assign access to all authenticated users to the end points "/home",
                 // "/sample"
-                .requestMatchers("/home", "/sample").authenticated())
+                // .requestMatchers("/home").authenticated()
+                .anyRequest().authenticated())
 
-                .formLogin(fl -> fl.successForwardUrl("/"))
+                .formLogin(fl -> fl.successForwardUrl("/home"))
                 .logout(lo -> lo.logoutSuccessUrl("/login"));
 
         return http.build();
