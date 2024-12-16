@@ -42,7 +42,15 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth.requestMatchers("/", "/home", "/sample").authenticated())
+
+        http.authorizeHttpRequests(auth -> auth
+                // permitting the access to the login and log out pages to all (no
+                // authentication required)
+                .requestMatchers("/", "/login", "logout").permitAll()
+                // assign access to all authenticated users to the end points "/home",
+                // "/sample"
+                .requestMatchers("/home", "/sample").authenticated())
+
                 .formLogin(fl -> fl.successForwardUrl("/"))
                 .logout(lo -> lo.logoutSuccessUrl("/login"));
 
