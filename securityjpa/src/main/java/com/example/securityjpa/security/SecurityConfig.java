@@ -34,8 +34,11 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/logout", "/").permitAll()
-                        .anyRequest().authenticated());
+                        .requestMatchers("/login", "/logout").permitAll()
+                        .anyRequest().authenticated())
+                .formLogin(fl -> fl.successForwardUrl("/"))
+                .logout(lo -> lo.logoutSuccessUrl("/login"));
+
         return http.build();
     }
 }
