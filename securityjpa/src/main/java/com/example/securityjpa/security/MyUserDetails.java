@@ -18,6 +18,10 @@ public class MyUserDetails implements UserDetails {
     @Autowired
     User user;
 
+    public MyUserDetails(User user) {
+        this.user = user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Role> userRoles = user.getRoles();

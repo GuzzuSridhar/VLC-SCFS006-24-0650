@@ -6,4 +6,6 @@ import com.example.securityjpa.model.User;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
+    User findByUserName(String name);
+
 }
