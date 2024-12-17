@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    <h1>Welcome to USer Management</h1>
+    <h1>Welcome <span sec:authentication="name"></span> to User Management</h1>
+    <p> you have the <span sec:authentication="principal.authorities"></span> roles </p>
+
+
 </body>
 
 </html>
