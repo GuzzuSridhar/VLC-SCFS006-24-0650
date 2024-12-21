@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Add new User</h3>
+    <form action="/save" th:object="${user}">
+        <table>
+            <tr>
+                <td><label for="name">User Name</label></td>
+                <td><input type="text" id="name" th:field="*{userName}"></td>
+            </tr>
+            <tr>
+                <td><label for="pass">Password</label></td>
+                <td><input type="password" id="pass" th:field="*{password}"></td>
+            </tr>
+
+            <!-- provision checkboxes for role assignment -->
+            <tr>
+                <td>Roles</td>
+                <td>
+                    <th:block th:each="role:${roles}">
+                        <input type="checkbox" name="" id="" th:field="*{roles}" th:text="${role.name}"
+                            th:value="${role.id}">
+                    </th:block>
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
+
+
+</body>
+
+</html>
