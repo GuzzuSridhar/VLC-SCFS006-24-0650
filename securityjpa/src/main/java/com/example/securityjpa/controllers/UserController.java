@@ -3,6 +3,8 @@ package com.example.securityjpa.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +22,13 @@ public class UserController {
     @Autowired
     RoleRepo roleRepo;
 
+    // password encryption
+    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
     @GetMapping("/")
-    public String showRoot() {
+    public String showRoot(Model model) {
+        List<User> users = userRepo.findAll();
+        model.addAttribute("users", users);
         return "welcome";
     }
 
@@ -42,6 +49,8 @@ public class UserController {
 
     @GetMapping("/save")
     public String saveUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepo.save(user);
         return "redirect:/";
     }
 
