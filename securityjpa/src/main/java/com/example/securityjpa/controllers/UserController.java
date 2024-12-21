@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.securityjpa.model.User;
@@ -51,6 +52,12 @@ public class UserController {
     public String saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String DelUser(@PathVariable("id") long id) {
+        userRepo.deleteById(id);
         return "redirect:/";
     }
 

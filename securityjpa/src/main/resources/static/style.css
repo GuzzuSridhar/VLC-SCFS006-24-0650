@@ -1,0 +1,10 @@
+table, th, td{
+    border: 1px solid blue;
+    border-collapse: collapse;
+
+}
+
+.center{
+    width: fit-content;
+    margin: auto;
+}
