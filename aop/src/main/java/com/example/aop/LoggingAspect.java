@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     Logger logger = LoggerFactory.getLogger(AopApplication.class);
 
-    @Before("execution(public String performOperation())")
     // Before advice: Log before any public method execution in the application
+    @Before("execution(public String performOperation())")
     public void logBefore() {
         System.out.println("Before method execution...");
         logger.info("Operation perform started");
