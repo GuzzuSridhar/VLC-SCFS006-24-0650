@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <style>
+        table {
+            margin-top: 15px;
+        }
+
+        .addbutton {
+            width: fit-content;
+            margin: auto;
+            padding: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="addbutton">
+        <h1>Search Results</h1>
+        <a href="/">Back</a>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-block">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Country</th>
+                            <th>Capital</th>
+                            <th> Actions </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="country : ${data}">
+                            <td th:text="${country.id}"></td>
+                            <td th:text="${country.name}"></td>
+                            <td th:text="${country.capital}"></td>
+                            <td>
+                                <a class="btn btn-danger delBtn" th:href="@{delete/(id=${country.id})}"><i
+                                        class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a class="btn btn-primary eBtn" th:href="@{findOne/(id=${country.id})}"><i
+                                        class="fa fa-edit" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
