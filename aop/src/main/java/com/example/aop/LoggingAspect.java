@@ -19,6 +19,12 @@ public class LoggingAspect {
         logger.info("Operation perform started");
     }
 
+    @Before("execution(public String anotherMethod())")
+    public void beforeLog() {
+        System.out.println("Before method execution...");
+        logger.info("another method started");
+    }
+
     // // After advice: Log after any public method execution in the application
     @After("execution(public String performOperation())")
     public void logAfter() {

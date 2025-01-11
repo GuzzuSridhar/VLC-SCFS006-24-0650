@@ -1,7 +1,7 @@
 -- All countries
 
 
-INSERT INTO `countries` (`name`, `capital`) VALUES
+INSERT INTO `country` (`name`, `capital`) VALUES
 ('Afghanistan', 'Kabul'),
 ('Åland Islands', 'Mariehamn'),
 ('Albania', 'Tirana'),
